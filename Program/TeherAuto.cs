@@ -28,18 +28,7 @@ namespace Program
             get => rakomany; 
             set
             {
-                if (rakomany < 0)
-                {
-                    rakomany = 0;
-                }
-                else if (rakomany > 20)
-                {
-                    rakomany = 20;
-                }
-                else
-                {
-                    rakomany = value;
-                }
+                rakomany = Math.Clamp(value, 0, 20);
             } 
         }
     }

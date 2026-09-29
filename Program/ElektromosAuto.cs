@@ -9,7 +9,6 @@ namespace Program
         private int akkumulatorSzint;
         public ElektromosAuto(string rendszam, int kor, int kilometerOra, int akkumulatorSzint) : base(rendszam, kor, kilometerOra, 0)
         {
-           
             this.AkkumulatorSzint = akkumulatorSzint;
         }
         public override void InformaciotAd()
@@ -21,29 +20,18 @@ namespace Program
         {
             if (dij > 100000)
             {
-                KilometerOra -= 10000;
+               KilometerOra -= 10000;
+            }
                 AkkumulatorSzint += 20;
                 Console.WriteLine("A jármű szervízelése megtörtént");
-            }
         }
 
         public int AkkumulatorSzint 
         { 
             get => akkumulatorSzint;
-            set 
-            { 
-                if ( akkumulatorSzint < 0)
-                {
-                    akkumulatorSzint = 0;
-                }
-                else if(akkumulatorSzint > 100)
-                {
-                    akkumulatorSzint = 100;
-                }
-                else
-                {
-                    akkumulatorSzint = value;
-                }
+            set
+            {
+                this.akkumulatorSzint = Math.Clamp(value, 0, 100);
             }
         }
 

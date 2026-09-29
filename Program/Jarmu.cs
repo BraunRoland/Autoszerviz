@@ -10,14 +10,15 @@ namespace Program
         private int kor;
         private int kilometerOra;
         private int uzemanyagSzint;
-        private bool szervizSzukseges
-;
+        private bool szervizSzukseges;
+
         public Jarmu(string rendszam, int kor, int kilometerOra, int uzemanyagSzint)
         {
             this.Rendszam = rendszam;
             this.Kor = kor;
             this.KilometerOra = kilometerOra;
             this.UzemanyagSzint = uzemanyagSzint;
+            SzervizSzukseges = false;
         }
 
         public virtual void InformaciotAd()
@@ -30,9 +31,9 @@ namespace Program
             if (dij > 100000)
             {
                 KilometerOra -= 10000;
+            }
                 UzemanyagSzint -= 10;
                 Console.WriteLine("A jármű szervízelése megtörtént");
-            }
         }
 
         public string Rendszam 
@@ -55,18 +56,7 @@ namespace Program
             get => kor;
             set
             {
-                if (kor < 0)
-                {
-                    kor = 0;
-                }
-                else if (kor > 50 )
-                {
-                    kor = 50;
-                }
-                else
-                {
-                    kor = value;
-                }
+                kor = Math.Clamp(value, 0, 50);
             }
         }
         public int KilometerOra 
@@ -74,9 +64,13 @@ namespace Program
             get => kilometerOra; 
             set
             {
-                if ( kilometerOra < 0)
+                if (value <= 0)
                 {
                     kilometerOra = 0;
+                }
+                else
+                {
+                    kilometerOra = value;
                 }
             } 
         }
@@ -85,26 +79,15 @@ namespace Program
             get => uzemanyagSzint; 
             set
             {
-                if ( uzemanyagSzint < 0)
-                {
-                    uzemanyagSzint = 0;
-                }
-                else if ( uzemanyagSzint > 100 )
-                {
-                    uzemanyagSzint = 100;
-                }
-                else
-                {
-                    uzemanyagSzint = value;
-                }
+                uzemanyagSzint = Math.Clamp(value, 0, 100);
             } 
         }
-        public bool SzervizSzukseges 
-        { 
-            get => szervizSzukseges; 
+        public bool SzervizSzukseges         { 
+
+            get => szervizSzukseges;
             set
             {
-                if (uzemanyagSzint >= 200000)
+                if (KilometerOra >= 200000)
                 {
                     szervizSzukseges = true;
                 }
@@ -112,6 +95,7 @@ namespace Program
                 {
                     szervizSzukseges = false;
                 }
+               
             }
         }
     }

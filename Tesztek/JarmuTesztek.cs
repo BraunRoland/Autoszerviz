@@ -31,7 +31,6 @@ namespace Tesztek
         public void Jarmu_SzervizSzukseges_200000KmTol()
         {
             Jarmu jarmu = new Jarmu("ABC-123", 5, 200000, 50);
-
             Assert.That(jarmu.SzervizSzukseges, Is.True);
         }
 
@@ -98,7 +97,6 @@ namespace Tesztek
         public void ElektromosAuto_Szervizel_100000FelettiDijEsetenCsokkenAKilometer()
         {
             ElektromosAuto auto = new ElektromosAuto("EV-123", 3, 200000, 50);
-
             auto.Szervizel(150000);
 
             Assert.That(auto.KilometerOra, Is.EqualTo(190000));

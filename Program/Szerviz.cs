@@ -8,12 +8,12 @@ namespace Program
     {
         private List<Jarmu> jarmuvek;
 
-        public Szerviz(List<Jarmu> jarmuvek)
+        public Szerviz()
         {
-            this.jarmuvek = jarmuvek;
+            this.jarmuvek = new List<Jarmu>();
         }
 
-        public void JarmuFeltetele(Jarmu jarmu)
+        public void JarmuFelvetele(Jarmu jarmu)
         {
             jarmuvek.Add(jarmu);
             Console.WriteLine("A jármű megérkezett a szervízbe");
