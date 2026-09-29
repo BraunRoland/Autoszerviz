@@ -22,7 +22,7 @@ namespace Program
 
         public virtual void InformaciotAd()
         {
-            Console.WriteLine($"{Rendszam} - {Kor} éves autó, {KilometerOra} km-el");
+            Console.Write($"{Rendszam} - {Kor} éves autó, {KilometerOra} km-el");
         }
 
         public virtual void Szervizel(int dij)

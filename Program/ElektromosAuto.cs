@@ -7,14 +7,15 @@ namespace Program
     public class ElektromosAuto : Jarmu
     {
         private int akkumulatorSzint;
-        public ElektromosAuto(string rendszam,int kor, int kilometerOra, int akkumulatorSzint) : base(rendszam,kor, kilometerOra,uzemanyagSzint)
+        public ElektromosAuto(string rendszam, int kor, int kilometerOra, int akkumulatorSzint) : base(rendszam, kor, kilometerOra, uzemanyagSzint)
         {
             this.UzemanyagSzint = 0;
             this.AkkumulatorSzint = akkumulatorSzint;
         }
         public override void InformaciotAd()
         {
-            Console.WriteLine($"{Rendszam} - {Kor} éves elektromos autó, {KilometerOra} km-rel, {AkkumulatorSzint}% töltöttséggel.");
+            base.InformaciotAd();
+            Console.WriteLine($", {AkkumulatorSzint}% töltöttséggel.");
         }
         public override void Szervizel(int dij)
         {
@@ -45,5 +46,7 @@ namespace Program
                 }
             }
         }
+
+        public static int uzemanyagSzint { get;}
     }
 }
