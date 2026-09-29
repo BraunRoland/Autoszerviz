@@ -12,19 +12,20 @@ namespace Program
         private int uzemanyagSzint;
         private bool szervizSzukseges
 ;
-        public Jarmu(int kor, int kilometerOra, int uzemanyagSzint)
+        public Jarmu(string rendszam, int kor, int kilometerOra, int uzemanyagSzint)
         {
+            this.Rendszam = rendszam;
             this.Kor = kor;
             this.KilometerOra = kilometerOra;
             this.UzemanyagSzint = uzemanyagSzint;
         }
 
-        public void InformaciotAd()
+        public virtual void InformaciotAd()
         {
             Console.WriteLine($"{Rendszam} - {Kor} éves autó, {KilometerOra} km-el");
         }
 
-        public void Szervizel(int dij)
+        public virtual void Szervizel(int dij)
         {
             if (dij > 100000)
             {
