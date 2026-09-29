@@ -47,6 +47,6 @@ namespace Program
             }
         }
 
-        public static int uzemanyagSzint { get;}
+        //public static int uzemanyagSzint { get;}
     }
 }
