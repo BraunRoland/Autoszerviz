@@ -7,9 +7,9 @@ namespace Program
     public class ElektromosAuto : Jarmu
     {
         private int akkumulatorSzint;
-        public ElektromosAuto(string rendszam, int kor, int kilometerOra, int akkumulatorSzint) : base(rendszam, kor, kilometerOra, uzemanyagSzint)
+        public ElektromosAuto(string rendszam, int kor, int kilometerOra, int akkumulatorSzint) : base(rendszam, kor, kilometerOra, 0)
         {
-            this.UzemanyagSzint = 0;
+           
             this.AkkumulatorSzint = akkumulatorSzint;
         }
         public override void InformaciotAd()
@@ -47,6 +47,5 @@ namespace Program
             }
         }
 
-        //public static int uzemanyagSzint { get;}
     }
 }
